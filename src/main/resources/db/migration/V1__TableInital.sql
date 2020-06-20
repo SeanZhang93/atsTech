@@ -34,6 +34,7 @@ ALTER TABLE employees
     ADD CONSTRAINT employee_department_fk FOREIGN KEY ( department_id )
         REFERENCES departments ( id );
 CREATE TABLE users (
+    id              BIGINT NOT NULL,
     name            VARCHAR(30) NOT NULL PRIMARY KEY,
     first_name      VARCHAR(30),
     last_name       VARCHAR(30),

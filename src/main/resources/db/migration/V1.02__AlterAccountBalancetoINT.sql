@@ -1,0 +1,2 @@
+ALTER TABLE accounts
+ALTER COLUMN balance TYPE INTEGER
