@@ -18,8 +18,8 @@ public class Account {
     @Column(name = "balance")
     private int balance;
 
-    @Column(name = "create_date")
-    private Timestamp createDate;
+//    @Column(name = "create_date")
+//    private Timestamp createDate;
 
     @ManyToOne
     @JoinColumn(name = "employee_id")
@@ -41,13 +41,13 @@ public class Account {
         balance = balance;
     }
 
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        createDate = createDate;
-    }
+//    public Date getCreateDate() {
+//        return createDate;
+//    }
+//
+//    public void setCreateDate(Date createDate) {
+//        createDate = createDate;
+//    }
 
     public long getId() {
         return id;

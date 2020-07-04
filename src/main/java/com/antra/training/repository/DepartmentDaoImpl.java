@@ -1,6 +1,7 @@
 package com.antra.training.repository;
 
 import com.antra.training.model.Department;
+import com.antra.training.service.DepartmentService;
 import com.antra.training.util.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -11,8 +12,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class DepartmentDaoImpl implements DepartmentDAO {
@@ -36,6 +39,7 @@ public class DepartmentDaoImpl implements DepartmentDAO {
         return null;
     }
 
+
     @Override
     public Department update(Department department) {
         return null;
@@ -56,6 +60,35 @@ public class DepartmentDaoImpl implements DepartmentDAO {
         }
         return result;
     }
+
+
+   // FROM Customer c WHERE c.id=:Id
+
+//    @Override
+//    public Department getBy(Long id) {
+//        String hql = "FROM Customer c WHERE c.id=:Id";
+//        SessionFactory session = SessionFactory.openSession();
+//        try{
+//            Query<Department> query = session.createQuery(hql);
+//            query.setParameter("Id", id);
+//            Department result = query.uniqueResult();
+//            session.close();
+//            return result;
+//        }catch(HibernateException e){
+//            logger.error("Failure to retrieve data record", e);
+//            session.close();
+//            return null;
+//        }
+//    }
+
+//    private DepartmentService departmentService;
+//
+//    public Department updateDepartmentName(Long Id, String name){
+//    Department department = departmentService.findById(Id);
+//        department.setName(name);
+//        department = department.
+//    }
+
 
     @Override
     public boolean delete(Department dep) {
@@ -80,6 +113,7 @@ public class DepartmentDaoImpl implements DepartmentDAO {
         }
         return false;
     }
+
 
     public Department getDepartmentEagerBy(Long id){
 //        select * from departments as dep left join employees as e on a.employee_id=dep.id where dep.id=:Id

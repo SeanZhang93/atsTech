@@ -14,7 +14,6 @@ CREATE TABLE employees (
     last_name       VARCHAR(30),
     email           VARCHAR(50),
     address         VARCHAR(150),
-    hired_date      date default CURRENT_DATE,
     department_id   BIGINT NOT NULL
 );
 ALTER TABLE employees ADD CONSTRAINT employee_pk PRIMARY KEY ( id );
@@ -23,7 +22,6 @@ CREATE TABLE accounts (
     id             BIGSERIAL NOT NULL,
     account_type   VARCHAR(30),
     balance        NUMERIC(10, 2),
-    create_date    date default CURRENT_DATE,
     employee_id    BIGINT NOT NULL
 );
 ALTER TABLE accounts ADD CONSTRAINT account_pk PRIMARY KEY ( id );
@@ -33,10 +31,10 @@ ALTER TABLE accounts
 ALTER TABLE employees
     ADD CONSTRAINT employee_department_fk FOREIGN KEY ( department_id )
         REFERENCES departments ( id );
-CREATE TABLE users (
-    id              BIGINT NOT NULL,
-    name            VARCHAR(30) NOT NULL PRIMARY KEY,
-    first_name      VARCHAR(30),
-    last_name       VARCHAR(30),
-    email           VARCHAR(50)
-);
+-- CREATE TABLE users (
+--     id              BIGINT NOT NULL,
+--     name            VARCHAR(30)
+--     first_name      VARCHAR(30),
+--     last_name       VARCHAR(30),
+--     email           VARCHAR(50)
+-- );

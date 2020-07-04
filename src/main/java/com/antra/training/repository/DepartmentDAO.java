@@ -3,6 +3,7 @@ package com.antra.training.repository;
 import com.antra.training.model.Department;
 
 import java.util.List;
+import java.util.Optional;
 
 
 //why interface? 只要去department table里边，
@@ -12,4 +13,9 @@ public interface DepartmentDAO {
     Department update(Department department);
     boolean delete(Department deptName);//TODO, check
     List<Department> getDepartments();
+//    Department findById(Long id);
+//     Department findById(Long id);
+//     Department updateDepartmentName(Long Id, String name)
+
+
 }

@@ -18,14 +18,14 @@ public class Employee {
 
     @Column(name = "first_name")
     private String FirstName;
+//
+//    public Date getHiredDate() {
+//        return HiredDate;
+//    }
 
-    public Date getHiredDate() {
-        return HiredDate;
-    }
-
-    public void setHiredDate(Date hiredDate) {
-        HiredDate = hiredDate;
-    }
+//    public void setHiredDate(Date hiredDate) {
+//        HiredDate = hiredDate;
+//    }
 
     @Column(name = "last_name")
     private String LastName;
@@ -36,8 +36,8 @@ public class Employee {
     @Column(name = "address")
     private String Address;
 
-    @Column(name = "hired_date")
-    private Date HiredDate;
+//    @Column(name = "hired_date")
+//    private Date HiredDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")

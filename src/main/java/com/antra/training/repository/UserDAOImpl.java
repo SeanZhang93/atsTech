@@ -1,0 +1,40 @@
+package com.antra.training.repository;
+
+import com.antra.training.model.Department;
+import com.antra.training.model.User;
+import com.antra.training.util.HibernateUtil;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+@Repository
+public class UserDAOImpl {
+    @Autowired
+    private Logger logger = LoggerFactory.getLogger(getClass());
+
+
+    @Override
+    public List<User> findAllUsers(){
+        String hql = "FROM User";
+        try (SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+             Session s = sessionFactory.openSession();
+             List<User> result = new ArrayList<>();
+        try{
+            Query query = s.createQuery(hql);
+            result = query.list();
+            s.close();
+        }catch (HibernateException e){
+            logger.error("session close exception try again..");
+        }
+        return result;
+    }
+}
