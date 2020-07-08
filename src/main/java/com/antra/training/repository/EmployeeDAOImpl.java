@@ -2,7 +2,7 @@ package com.antra.training.repository;
 
 import com.antra.training.model.Department;
 import com.antra.training.model.Employee;
-import com.antra.training.model.Role;
+//import com.antra.training.model.Role;
 import com.antra.training.util.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

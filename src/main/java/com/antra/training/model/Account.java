@@ -3,6 +3,7 @@ package com.antra.training.model;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "accounts")
@@ -16,7 +17,7 @@ public class Account {
     private String accountType;
 
     @Column(name = "balance")
-    private int balance;
+    private BigDecimal balance;
 
 //    @Column(name = "create_date")
 //    private Timestamp createDate;
@@ -33,11 +34,11 @@ public class Account {
         accountType = accountType;
     }
 
-    public int getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(BigDecimal balance) {
         balance = balance;
     }
 

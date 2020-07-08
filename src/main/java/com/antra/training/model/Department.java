@@ -5,6 +5,7 @@ import javax.persistence.*;
 
 import java.util.Set;
 
+import java.lang.Integer;
 import static javax.persistence.GenerationType.SEQUENCE;
 
 
@@ -14,10 +15,15 @@ import static javax.persistence.GenerationType.SEQUENCE;
 public class Department {
    // public Department(){};
 
+//    @Id
+////    @GeneratedValue(strategy=SEQUENCE, generator = "users_id_seq")
+////    @SequenceGenerator(name="users_id_seq", sequenceName = "users_id_seq", allocationSize = 1)
+//    private long id;
+
     @Id
-//    @GeneratedValue(strategy=SEQUENCE, generator = "users_id_seq")
-//    @SequenceGenerator(name="users_id_seq", sequenceName = "users_id_seq", allocationSize = 1)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
 
     @Column(name = "name")
     private String name;

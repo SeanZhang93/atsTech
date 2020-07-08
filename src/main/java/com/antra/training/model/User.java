@@ -25,8 +25,6 @@ public class User {
     @Column(name = "last_name")
     private String LastName;
 
-    @Column(name = "name")
-    private String Name;
 
     public String getSecretKey() {
         return secretKey;
@@ -52,7 +50,6 @@ public class User {
         return id == user.id &&
                 Objects.equals(FirstName, user.FirstName) &&
                 Objects.equals(LastName, user.LastName) &&
-                Objects.equals(Name, user.Name) &&
                 Objects.equals(Email, user.Email) &&
                 Objects.equals(secretKey, user.secretKey) &&
                 Objects.equals(password, user.password);
@@ -60,7 +57,7 @@ public class User {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, FirstName, LastName, Name, Email, secretKey, password);
+        return Objects.hash(id, FirstName, LastName, Email, secretKey, password);
     }
 
     @Column(name = "email")
@@ -89,14 +86,6 @@ public class User {
         LastName = lastName;
     }
 
-    public String getName() {
-        return Name;
-    }
-
-    public void setName(String name) {
-        Name = name;
-    }
-
     public String getEmail() {
         return Email;
     }
@@ -105,20 +94,20 @@ public class User {
         Email = email;
     }
 
-    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "users_role",
-                joinColumns = {@JoinColumn(name = "user_id")},
-    inverseJoinColumns = {@JoinColumn(name = "role_id")})
-
-    private Set roles; //why set, it performs better
-
-    public void addRole(Role role) {
-        this.roles.add(role);
-        role.getUsers().add(this);
-    }
-
-    public void removeRole(Role role) {
-        this.roles.remove(role);
-        role.getUsers().remove(this);
-    }
+//    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+//    @JoinTable(name = "users_role",
+//                joinColumns = {@JoinColumn(name = "user_id")},
+//    inverseJoinColumns = {@JoinColumn(name = "role_id")})
+//
+//    private Set roles; //why set, it performs better
+//
+//    public void addRole(Role role) {
+//        this.roles.add(role);
+//        role.getUsers().add(this);
+//    }
+//
+//    public void removeRole(Role role) {
+//        this.roles.remove(role);
+//        role.getUsers().remove(this);
+//    }
 }

@@ -1,7 +1,7 @@
 package com.antra.training.controller;
 
 import com.antra.training.model.Department;
-import com.antra.training.service.DepartmentService;
+//import com.antra.training.service.DepartmentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +23,8 @@ public class DepartmentController {
   //  private Logger logger = LoggerFactory.getLogger(getClass());
 
     private Logger logger = LoggerFactory.getLogger(getClass());
-    @Autowired
-    private DepartmentService departmentService;
+    //@Autowired
+    //private DepartmentService departmentService;  --add back
 
 
     @RequestMapping(value = "/department", method = RequestMethod.GET)
