@@ -17,16 +17,15 @@ import java.util.List;
 
 
 @Repository
-public class UserDAOImpl {
-    @Autowired
+public class UserDAOImpl implements UserDAO {
     private Logger logger = LoggerFactory.getLogger(getClass());
 
 
     @Override
     public List<User> findAllUsers(){
         String hql = "FROM User";
-        try (SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-             Session s = sessionFactory.openSession();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session s = sessionFactory.openSession();
              List<User> result = new ArrayList<>();
         try{
             Query query = s.createQuery(hql);
@@ -37,4 +36,33 @@ public class UserDAOImpl {
         }
         return result;
     }
+
+//    @Override
+//    public User findById(Long Id){
+//        String hql = "FROM User as u where u.id = :Id";
+//        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+//        Session s = sessionFactory.openSession();
+//        try{
+//            Query query = s.createQuery(hql);
+//            result = query.list();
+//            s.close();
+//        }catch (HibernateException e){
+//            logger.error("session close exception try again..");
+//        }
+//        return result;
+
+    //}
+    /*
+    SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session s = sessionFactory.openSession();
+        List<Department> result = new ArrayList<>();
+        try{
+            Query query = s.createQuery(hql);
+            result = query.list();
+            s.close();
+        }catch (HibernateException e){
+            logger.error("session close exception try again..");
+        }
+        return result;
+     */
 }

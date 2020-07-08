@@ -47,7 +47,7 @@ public class DepartmentDaoImpl implements DepartmentDAO {
 
     @Override
     public List<Department> getDepartments() {
-        String hql = "FROM Department";
+        String hql = "SELECT d FROM Department d";
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session s = sessionFactory.openSession();
         List<Department> result = new ArrayList<>();

@@ -21,7 +21,6 @@ public class UserRoleController {
     @GetMapping(name = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<User> findAllUsers(){
         return userService.getAllUsers();
-
     }
 
 
@@ -31,6 +30,7 @@ public class UserRoleController {
     @GetMapping(name = "/roles", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Role> findAllRoles(){
         return userService.getAllUsers();
+        //TODO：
     }
 
 }

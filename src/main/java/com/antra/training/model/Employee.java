@@ -36,6 +36,13 @@ public class Employee {
     @Column(name = "address")
     private String Address;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 //    @Column(name = "hired_date")
 //    private Date HiredDate;
 
