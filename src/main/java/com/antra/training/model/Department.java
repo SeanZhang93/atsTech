@@ -23,7 +23,7 @@ public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -34,6 +34,7 @@ public class Department {
     @Column(name = "location")
     private String location;
 
+
 //    @Column(name = "department_name")
 //    private String departmentName;
 
@@ -42,11 +43,22 @@ public class Department {
     @OneToMany(mappedBy = "department", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private Set<Employee> employees;
 
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
 
-    @ManyToOne
-    @JoinColumn(name = "department_id")
-    private Employee dep;//
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
+    }
+//
+//    @ManyToOne
+//    @JoinColumn(name = "department_id")
+//    private Employee dep;//
 
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -80,7 +92,7 @@ public class Department {
 //        this.departmentName = departmentName;
 //    }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

@@ -22,7 +22,9 @@ public class HibernateUtil {
     public static SessionFactory sessionFactory;  //singleton
 
     public static SessionFactory getSessionFactory() {
+
         if (sessionFactory == null) {
+            try {
                 String[] modelPackages = {"com.antra.training"};
                 String dbDriver = System.getProperty("database.driver");
                 String dbDialect = System.getProperty("database.dialect");
@@ -48,7 +50,10 @@ public class HibernateUtil {
                 ServiceRegistry serviceRegistry = registryBuilder.applySettings(configuration.getProperties()).build();
 
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+            } catch (Exception e){
+                logger.error("Fail to generate hibernate sessionfactory", e);
             }
+        }
 
         return sessionFactory;
     }

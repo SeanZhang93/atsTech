@@ -66,7 +66,7 @@ public class User {
     @Column(name = "name")
     private String secretKey;
 
-    @Column(name = "column")
+    @Column(name = "password")
     private String password;
 
 

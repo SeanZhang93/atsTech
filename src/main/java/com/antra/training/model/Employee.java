@@ -46,17 +46,25 @@ public class Employee {
 //    @Column(name = "hired_date")
 //    private Date HiredDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     private Department department;
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
 
     @OneToMany(mappedBy = "emp", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     //mappedby-->去Account里边找那个"emp"
     //Cascade--> 解决删除和更新之间的关系，
     private Set<Account> accounts;
 
-    @OneToMany(mappedBy = "dep", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-    private Set<Department> departments;
+//    @ManyToOne( fetch = FetchType.LAZY)
+//    private Department department;
 
     public String getEmployeeName() {
         return EmployeeName;

@@ -13,8 +13,8 @@
 //    private UserDAO userDAO;
 //
 //
-//    public List<User> getAllUsers(){
-//        List<User> userList= userDAO.findAllUsers();
-//                return userList;
-//    }
+//    public List<User> findAllUsers(){
+//        List<User> userList= userDAO.findAllUsers(User user) {return userList;};
+//
+//
 //}

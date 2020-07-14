@@ -33,10 +33,10 @@ public class DepartmentDaoTest {
 //    }
 
 
-    private static Logger logger = LoggerFactory.getLogger(HibernateUtil.class);
+    private  Logger logger = LoggerFactory.getLogger(getClass());
     @Autowired
     private DepartmentDAO departmentDao;
-    @Autowired
+
     private Department d1;
 
 
@@ -44,8 +44,9 @@ public class DepartmentDaoTest {
     public void setup(){
          departmentDao = new DepartmentDaoImpl();
          d1 = new Department();
+         d1.setId((long)1);
          d1.setName("hr");
-         d1=departmentDao.save(d1);
+         departmentDao.save(d1);
     }
 
     @After
@@ -60,7 +61,6 @@ public class DepartmentDaoTest {
         Assert.assertEquals(1, departments.size());
         logger.error("all clear");
   }
-
 
 //    @Test
 //    @Transactional
