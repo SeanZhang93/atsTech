@@ -1,0 +1,1 @@
+Alter table employees add column passowrd VARCHAR(64)

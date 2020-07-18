@@ -36,6 +36,17 @@ public class Employee {
     @Column(name = "address")
     private String Address;
 
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
+    }
+
+    @Column(name = "password")
+    private String Password;
+
     public long getId() {
         return id;
     }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping(value = "employee")
 public class EmployeeController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -26,15 +26,18 @@ public class EmployeeController {
     }
 
 
-    @RequestMapping(value= "/listEmp", method = RequestMethod.POST, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @RequestMapping(value= "", method = RequestMethod.POST, consumes = {MediaType.APPLICATION_JSON_VALUE})
     public List<Employee> listEmps() { return employeeService.getEmployees();}
 
 
-    @RequestMapping(value = "/deleteEmpById/{userId}", method = RequestMethod.POST, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @RequestMapping(value = "{userId}", method = RequestMethod.POST, consumes = {MediaType.APPLICATION_JSON_VALUE})
     public Boolean deleteEmp(@RequestBody Employee employee){
         Boolean deleteEmp = employeeService.delete(employee);
         return deleteEmp;
     }
+
+
+
 
 
 

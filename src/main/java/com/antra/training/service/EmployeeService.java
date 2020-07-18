@@ -1,6 +1,7 @@
 package com.antra.training.service;
 
 
+import com.antra.training.model.Department;
 import com.antra.training.model.Employee;
 import com.antra.training.repository.EmployeeDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,4 +21,9 @@ public class EmployeeService {
 
     public boolean delete(Employee employee) {return employeeDAO.delete(employee);}
 
-    }
+    public Department getEmployeeByCredentials(String email, String password){return employeeDAO.getEmployeeByCredentials(email,password);};
+
+
+
+
+}

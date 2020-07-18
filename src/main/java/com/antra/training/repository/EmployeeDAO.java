@@ -11,5 +11,6 @@ public interface EmployeeDAO {
     boolean delete(Employee employee);//TODO, check
     Employee update(Employee employee);
     Employee getEmployeeByName(String name);
+    Department getEmployeeByCredentials(String email, String password)；
 
-}
+    }
