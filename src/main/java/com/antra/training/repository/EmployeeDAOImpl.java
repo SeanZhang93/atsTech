@@ -155,26 +155,26 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     //}
 
 
-    @Override
-    public Department getEmployeeByCredentials(String email, String password){
-//        select * from departments as dep left join employees as e on a.employee_id=dep.id where dep.id=:Id
-        String hql = "FROM Employee as e where lower(e.email) = :email and e.password = :password";
-        Transaction transaction = null;
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        try {
-            transaction = session.beginTransaction();
-            Query<Department> query = session.createQuery(hql);
-            query.setParameter("email",email.toLowerCase().trim());
-            query.setParameter("password",password.toLowerCase().trim());
-            Department result = query.uniqueResult();
-            transaction.commit();
-            session.close();
-            return result;
-        }catch (HibernateException e){
-            logger.error("failure to find credentail",e.getMessage());
-            return null;
-        }
-    }
+//    @Override
+//    public Department getEmployeeByCredentials(String email, String password){
+////        select * from departments as dep left join employees as e on a.employee_id=dep.id where dep.id=:Id
+//        String hql = "FROM Employee as e where lower(e.email) = :email and e.password = :password";
+//        Transaction transaction = null;
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//        try {
+//            transaction = session.beginTransaction();
+//            Query<Department> query = session.createQuery(hql);
+//            query.setParameter("email",email.toLowerCase().trim());
+//            query.setParameter("password",password.toLowerCase().trim());
+//            Department result = query.uniqueResult();
+//            transaction.commit();
+//            session.close();
+//            return result;
+//        }catch (HibernateException e){
+//            logger.error("failure to find credentail",e.getMessage());
+//            return null;
+//        }
+//    }
 
 
 }

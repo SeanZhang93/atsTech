@@ -21,7 +21,7 @@ public class EmployeeService {
 
     public boolean delete(Employee employee) {return employeeDAO.delete(employee);}
 
-    public Department getEmployeeByCredentials(String email, String password){return employeeDAO.getEmployeeByCredentials(email,password);};
+//    public Department getEmployeeByCredentials(String email, String password){return employeeDAO.getEmployeeByCredentials(email,password);};
 
 
 

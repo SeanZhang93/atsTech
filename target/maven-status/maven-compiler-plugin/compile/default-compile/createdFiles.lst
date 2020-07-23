@@ -1,9 +1,7 @@
 com/antra/training/model/User.class
-com/antra/training/repository/RoleDAO.class
 com/antra/training/model/Department.class
 com/antra/training/repository/EmployeeDAO.class
 com/antra/training/model/Employee.class
-com/antra/training/model/Role.class
 com/antra/training/repository/DepartmentDAO.class
 com/ascending/training/filter/LogFilter.class
 com/antra/training/repository/UserDAO.class
@@ -11,7 +9,6 @@ com/antra/training/ApplicationBootstrap.class
 com/antra/training/repository/EmployeeDAOImpl.class
 com/antra/training/repository/DepartmentDaoImpl.class
 com/antra/training/controller/DepartmentController.class
-com/antra/training/repository/RoleDaoImpl.class
 com/antra/training/model/Account.class
 com/antra/training/controller/EmployeeController.class
 com/antra/training/service/EmployeeService.class
